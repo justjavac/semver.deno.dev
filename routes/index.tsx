@@ -1,15 +1,11 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
-import Counter from "../islands/Counter.tsx";
+import { Handlers } from "$fresh/server.ts";
+import Pkg, { handler as pkgHandler } from "./[pkg].tsx";
 
-export default function Home() {
-  return (
-    <div class={tw`p-4 mx-auto max-w-screen-md`}>
-      <p class={tw`my-6`}>
-        Welcome to `fresh`. Try update this message in the ./routes/index.tsx file, and refresh.
-      </p>
-      <Counter start={3} />
-    </div>
-  );
-}
+export const handler: Handlers = {
+  GET(req, ctx) {
+    ctx.params.pkg = "oak";
+    return pkgHandler.GET!(req, ctx);
+  },
+};
+
+export default Pkg;
