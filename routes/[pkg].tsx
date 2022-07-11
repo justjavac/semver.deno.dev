@@ -40,6 +40,8 @@ export default function Pkg({ data, params }: PageProps<string[] | null>) {
           placeholder="Enter a Deno package name..."
           value={params.pkg}
           required
+          // @ts-ignore onKeyDown does support strings
+          onKeyDown="event.key==='Enter' && (location.href=`/${document.getElementById('pkg').value}`)"
         />
         <button
           role="submit"
