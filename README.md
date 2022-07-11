@@ -1,4 +1,8 @@
-# fresh project
+# semver.deno.dev
+
+🦕 Deno package semver calculator.
+
+<https://semver.deno.dev>
 
 ### Usage
 
